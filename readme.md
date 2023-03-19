@@ -1,5 +1,14 @@
 # Restful API Blog
 
+- Authentication and authorization: The platform should allow users to sign up and log in using a secure authentication method like JSON Web Tokens (JWT). Each user should have a unique set of privileges that govern their ability to take certain activities (e.g. creating, updating, and deleting their own posts).
+
+- CRUD operations: Users should be able to create, read, update, and remove their own blog articles (also known as CRUD operations). The API should also enable users to do keyword searches and retrieve a list of all blog entries.
+
+- Commenting system: Visitors should be able to write comments on blogs. Users should be able to add, read, edit, and remove their own comments via the API.
+
+- Pagination and sorting: The API should allow pagination and sorting to increase efficiency when retrieving large numbers of blog posts or comments.
+
+- Error handling and logging: To aid with debugging and troubleshooting, the API should gracefully handle errors and log any pertinent information.
 
 ## Packages
 
