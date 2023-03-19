@@ -1,4 +1,4 @@
-const { Post } = require("../models/blog.model.js");
+const { Post, User } = require("../models/blog.model.js");
 
 // Get a list of all posts
 exports.getPosts = async (req, res) => {
@@ -15,13 +15,18 @@ exports.getPosts = async (req, res) => {
 
 // Create a new post
 exports.createPost = async (req, res) => {
-  const { title, content } = req.body;
+  const { title, content, author } = req.body;
 
   try {
+    const authorUser = await User.findById(author);
+    if (!author) {
+      return res.status(404).json({ msg: "Author not found" });
+    }
+
     const post = new Post({
       title,
       content,
-      author: req.user.id, // set the author to the currently logged in user
+      author: authorUser._id, // set the author to the currently logged in user
     });
 
     await post.save();
