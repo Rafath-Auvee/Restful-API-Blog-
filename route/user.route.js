@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
 const userController = require("../controller/user.controller.js");
-const authController = require("../controller/auth.controller.js");
+
 // GET all users
 router.get("/", userController.getUsers);
 
@@ -17,8 +16,5 @@ router.put("/:id", userController.updateUser);
 
 // DELETE a user by ID
 router.delete("/:id", userController.deleteUser);
-
-// Login
-router.post("/login", authController.login);
 
 module.exports = router;
