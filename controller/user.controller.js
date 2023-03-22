@@ -3,7 +3,7 @@ const { User } = require("../models/blog.model.js");
 // Get a list of all users
 exports.getUsers = async (req, res) => {
   try {
-    const users = await User.find()
+    const users = await User.find({})
       .populate("posts", ["title content"])
       .sort({ createdAt: -1 });
     res.json(users);
